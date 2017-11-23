@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <gl\freeglut.h>
+#include <cmath>
 
 static int w = 0, h = 0;
 
@@ -11,7 +12,15 @@ double pedestal_rotate_x = 0;
 double pedestal_rotate_y = 0;
 double pedestal_rotate_z = 0;
 
-static int spin = 0;
+bool camera_rotation = false;
+
+int oldX, oldY;
+bool rotate = false;
+float theta = 0, phi = 0;
+int radius = 5;
+double eyeX = 2.0, eyeY = 3.0, eyeZ = 4.0, pickObjX = 0, pickObjY = 0, pickObjZ = 0;
+
+float zoom = 1.0;
 
 void Init(void) {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -40,7 +49,7 @@ void Enable_Light1(void) {
 
 	GLfloat position[] = { 2.5, 0.0, -2.5, 1.0 };
 	GLfloat ambientLight[] = { 0.5, 0.0, 0.0, 1.0 };
-	GLfloat diffuseLight[] = { 1.0, 0.5, 1.0, 1.0 };
+	GLfloat diffuseLight[] = { 1.0, 0.0, 1.0, 1.0 };
 	GLfloat specularLight[] = { 1.0, 1.0, 1.0, 1.0 };
 
 	glLightfv(GL_LIGHT1, GL_AMBIENT, ambientLight);
@@ -74,6 +83,17 @@ void Enable_Light2(void) {
 void Display(void) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	glLoadIdentity();
+
+	if (camera_rotation) {
+		eyeX = pickObjX + radius*cos(phi)*sin(theta);
+		eyeY = pickObjY + radius*sin(phi)*sin(theta);
+		eyeZ = pickObjZ + radius*cos(theta);
+	}
+	
+	//assuming modelview matrix mode is set 
+	gluLookAt(eyeX, eyeY, eyeZ, pickObjX, pickObjY, pickObjZ, 0, 1, 0);
+
 	// light 0
 	Enable_Light0();
 
@@ -82,6 +102,21 @@ void Display(void) {
 
 	// light 2
 	Enable_Light2();
+
+	glScalef(zoom, zoom, zoom);
+
+	glPushMatrix();
+
+	glBegin(GL_LINES);
+	for (int i = -15; i <= 15; i++) {
+		glVertex3f(i, -0.5, -15);
+		glVertex3f(i, -0.5, 15);
+
+		glVertex3f(-15, -0.5, i);
+		glVertex3f(15, -0.5, i);
+	};
+	glEnd();
+	glPopMatrix();
 
 	glPushMatrix();
 
@@ -100,10 +135,11 @@ void Display(void) {
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular_bronze);
 	glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 25.6);
 
-	glTranslatef(1.0, 0.0, 0.0);
+	glTranslatef(1.0, -0.15, 0.0);
 	glRotatef(rotate_x, 1.0, 0.0, 0.0);
 	glRotatef(rotate_y, 0.0, 1.0, 0.0);
 	glRotatef(rotate_z, 0.0, 0.0, 1.0);
+	glScalef(1.0, 0.7, 1.0);
 	//glTranslatef(2.0, -1.0, 0.0);
 	//glScalef(2.0, 1.0, 2.0);
 
@@ -121,11 +157,11 @@ void Display(void) {
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular_golden);
 	glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 51.2);
 
-	glTranslatef(0.0, 0.5, 0.0);
+	glTranslatef(0.0, 0.25, 0.0);
 	glRotatef(rotate_x, 1.0, 0.0, 0.0);
 	glRotatef(rotate_y, 0.0, 1.0, 0.0);
 	glRotatef(rotate_z, 0.0, 0.0, 1.0);
-	glScalef(1.0, 2.0, 1.0);
+	glScalef(1.0, 1.5, 1.0);
 
 	glutSolidCube(1);
 	glPopMatrix();
@@ -168,7 +204,7 @@ void Reshape(int width, int height) {
 	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(2.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	//gluLookAt(2.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
 void Keyboard(unsigned char key, int x, int y) {
@@ -181,10 +217,13 @@ void Keyboard(unsigned char key, int x, int y) {
 		case 'd': pedestal_rotate_y -= 5; break;
 		case 'q': pedestal_rotate_z += 5; break;
 		case 'e': pedestal_rotate_z -= 5; break;
+
+		// zoom
+		case 'i': zoom += 0.1; break;
+		case 'o': zoom -= 0.1; break;
 	}
 	glutPostRedisplay();
 }
-
 
 void specialKeys(int key, int x, int y) {
 
@@ -196,9 +235,32 @@ void specialKeys(int key, int x, int y) {
 		case GLUT_KEY_LEFT: rotate_y -= 5; break;
 		case GLUT_KEY_PAGE_UP: rotate_z += 5; break;
 		case GLUT_KEY_PAGE_DOWN: rotate_z -= 5; break;
+
+		case GLUT_KEY_CTRL_L: camera_rotation = !camera_rotation; break;
 	}
 
 	glutPostRedisplay();
+}
+
+void mouseMove(int x, int y) {
+	if (rotate) {
+		//you might need to adjust this multiplier(0.01)
+		theta += (x - oldX)*0.003f;
+		phi += (y - oldY)*0.003f;
+	}
+	oldX = x;
+	oldY = y;
+	glutPostRedisplay();
+}
+
+void mouseButton(int button, int state, int x, int y) {
+	rotate = false;
+	if (button == GLUT_LEFT_BUTTON) {	
+		oldX = x;
+		oldY = y;
+		rotate = true;
+	}
+	
 }
 
 int main(int argc, char* argv[]) {
@@ -208,10 +270,15 @@ int main(int argc, char* argv[]) {
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 	glutCreateWindow("OpenGL");
 	Init();
-	glutReshapeFunc(Reshape);
 	glutDisplayFunc(Display);
+	glutReshapeFunc(Reshape);
+
 	glutSpecialFunc(specialKeys);
 	glutKeyboardFunc(Keyboard);
+
+	glutMouseFunc(mouseButton);
+	glutMotionFunc(mouseMove);
+
 	glutMainLoop();
 	return 0;
 }
