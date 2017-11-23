@@ -91,7 +91,6 @@ void Display(void) {
 		eyeZ = pickObjZ + radius*cos(theta);
 	}
 	
-	//assuming modelview matrix mode is set 
 	gluLookAt(eyeX, eyeY, eyeZ, pickObjX, pickObjY, pickObjZ, 0, 1, 0);
 
 	// light 0
@@ -140,8 +139,6 @@ void Display(void) {
 	glRotatef(rotate_y, 0.0, 1.0, 0.0);
 	glRotatef(rotate_z, 0.0, 0.0, 1.0);
 	glScalef(1.0, 0.7, 1.0);
-	//glTranslatef(2.0, -1.0, 0.0);
-	//glScalef(2.0, 1.0, 2.0);
 
 	glutSolidCube(1);
 	glPopMatrix();
@@ -181,8 +178,6 @@ void Display(void) {
 	glRotatef(rotate_x, 1.0, 0.0, 0.0);
 	glRotatef(rotate_y, 0.0, 1.0, 0.0);
 	glRotatef(rotate_z, 0.0, 0.0, 1.0);
-	//glTranslatef(-2.0, -0.5, 0.0);
-	//glScalef(2.0, 2.0, 2.0);
 
 	glutSolidCube(1);
 	glPopMatrix();
@@ -219,8 +214,8 @@ void Keyboard(unsigned char key, int x, int y) {
 		case 'e': pedestal_rotate_z -= 5; break;
 
 		// zoom
-		case 'i': zoom += 0.1; break;
-		case 'o': zoom -= 0.1; break;
+		/*case 'i': zoom += 0.1; break;
+		case 'o': zoom -= 0.1; break;*/
 	}
 	glutPostRedisplay();
 }
@@ -244,7 +239,6 @@ void specialKeys(int key, int x, int y) {
 
 void mouseMove(int x, int y) {
 	if (rotate) {
-		//you might need to adjust this multiplier(0.01)
 		theta += (x - oldX)*0.003f;
 		phi += (y - oldY)*0.003f;
 	}
@@ -263,6 +257,12 @@ void mouseButton(int button, int state, int x, int y) {
 	
 }
 
+void mouseWheel(int wheel, int direction, int x, int y)
+{
+	(direction > 0) ? zoom += 0.1 : zoom -= 0.1;
+	glutPostRedisplay();
+}
+
 int main(int argc, char* argv[]) {
 	glutInit(&argc, argv);
 	glutInitWindowPosition(50, 50);
@@ -278,6 +278,7 @@ int main(int argc, char* argv[]) {
 
 	glutMouseFunc(mouseButton);
 	glutMotionFunc(mouseMove);
+	glutMouseWheelFunc(mouseWheel);
 
 	glutMainLoop();
 	return 0;

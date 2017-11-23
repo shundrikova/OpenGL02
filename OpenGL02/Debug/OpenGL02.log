@@ -1,46 +1,46 @@
 ﻿  main.cpp
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(68): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(68): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(111): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(112): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(113): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(114): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(115): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(116): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(122): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(123): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(124): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(125): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(128): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(128): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(129): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(129): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(130): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(130): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(131): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(131): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(136): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(138): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(135): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(137): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(138): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(139): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(140): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(141): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(142): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(151): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(151): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(152): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(152): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(153): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(153): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(158): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(161): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(162): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(163): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(171): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(171): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(172): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(172): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(173): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(173): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(178): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(181): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(182): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(183): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(222): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(223): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(141): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(148): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(148): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(149): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(149): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(150): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(150): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(155): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(158): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(159): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(160): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(168): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(168): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(169): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(169): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(170): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(170): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(175): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(178): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(179): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(180): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(262): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\sasha\documents\github\opengl02\opengl02\main.cpp(262): warning C4305: '-=': truncation from 'double' to 'float'
   OpenGL02.vcxproj -> C:\Users\Sasha\Documents\GitHub\OpenGL02\Debug\OpenGL02.exe
   OpenGL02.vcxproj -> C:\Users\Sasha\Documents\GitHub\OpenGL02\Debug\OpenGL02.pdb (Full PDB)
