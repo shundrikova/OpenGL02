@@ -18,7 +18,7 @@ int oldX, oldY;
 bool rotate = false;
 float theta = 0, phi = 0;
 int radius = 5;
-double eyeX = 2.0, eyeY = 3.0, eyeZ = 4.0, pickObjX = 0, pickObjY = 0, pickObjZ = 0;
+double eyeX = 0.0, eyeY = 0.0, eyeZ = 10.0, pickObjX = 0, pickObjY = 0, pickObjZ = 0;
 
 float zoom = 1.0;
 
@@ -61,9 +61,9 @@ void Enable_Light1(void) {
 void Enable_Light2(void) {
 	glEnable(GL_LIGHT2);
 
-	GLfloat position[] = { 2.0, 2.0, 3.0, 1.0 };
+	GLfloat position[] = { 0.0, 0.0, 1000.0, 1.0 };
 	//{ 0.8, 0.8, 0.2, 1.0 };
-	GLfloat spot_direction[] = { 0.0, 0.0, 1.0 };
+	GLfloat spot_direction[] = { 0.0, 0.0, -1.0 };
 
 	GLfloat ambientLight[] = { 0.5, 0.3, 0.3, 1.0 };
 	GLfloat diffuseLight[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -74,9 +74,9 @@ void Enable_Light2(void) {
 	glLightfv(GL_LIGHT2, GL_SPECULAR, specularLight);
 	glLightfv(GL_LIGHT2, GL_POSITION, position);
 
-	//glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 45.0);
+	glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 0.05);
 	glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, spot_direction);
-	glLightf(GL_LIGHT2, GL_SPOT_EXPONENT, 15.0);
+	glLightf(GL_LIGHT2, GL_SPOT_EXPONENT, 0.0);
 
 }
 
@@ -94,10 +94,10 @@ void Display(void) {
 	gluLookAt(eyeX, eyeY, eyeZ, pickObjX, pickObjY, pickObjZ, 0, 1, 0);
 
 	// light 0
-	Enable_Light0();
+	//Enable_Light0();
 
 	// light 1
-	Enable_Light1();
+	//Enable_Light1();
 
 	// light 2
 	Enable_Light2();
@@ -129,16 +129,17 @@ void Display(void) {
 	GLfloat diffuse_bronze[] = { 0.71, 0.43, 0.18, 1.00 };
 	GLfloat specular_bronze[] = { 0.39, 0.27, 0.17, 1.00 };
 
-	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient_bronze);
+	//glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient_bronze);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse_bronze);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular_bronze);
 	glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 25.6);
 
-	glTranslatef(1.0, -0.15, 0.0);
+	glScalef(1.0, 0.7, 1.0);
+	glTranslatef(1.0, 0.0, 0.0);
 	glRotatef(rotate_x, 1.0, 0.0, 0.0);
 	glRotatef(rotate_y, 0.0, 1.0, 0.0);
 	glRotatef(rotate_z, 0.0, 0.0, 1.0);
-	glScalef(1.0, 0.7, 1.0);
+
 
 	glutSolidCube(1);
 	glPopMatrix();
@@ -146,19 +147,22 @@ void Display(void) {
 	// golden cube
 	glPushMatrix();
 	GLfloat ambient_golden[] = { 0.25, 0.22, 0.06, 1.00 };
-	GLfloat diffuse_golden[] = { 0.35, 0.31, 0.09, 1.00 };
+	//GLfloat diffuse_golden[] = { 0.35, 0.31, 0.09, 1.00 };
+	GLfloat diffuse_golden[] = { 0.71, 0.43, 0.18, 1.00 };
 	GLfloat specular_golden[] = { 0.80, 0.72, 0.21, 1.00 };
 
-	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient_golden);
+	//glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient_golden);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse_golden);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular_golden);
 	glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 51.2);
 
-	glTranslatef(0.0, 0.25, 0.0);
+	//glTranslatef(0.0, 0.25, 0.0);
+	glScalef(1.0, 1.5, 1.0);
+	glTranslatef(0.0, 0.0, 0.0);
 	glRotatef(rotate_x, 1.0, 0.0, 0.0);
 	glRotatef(rotate_y, 0.0, 1.0, 0.0);
 	glRotatef(rotate_z, 0.0, 0.0, 1.0);
-	glScalef(1.0, 1.5, 1.0);
+
 
 	glutSolidCube(1);
 	glPopMatrix();
@@ -166,10 +170,11 @@ void Display(void) {
 	// silver cube
 	glPushMatrix();
 	GLfloat ambient_silver[] = { 0.23, 0.23, 0.23, 1.00 };
-	GLfloat diffuse_silver[] = { 0.28, 0.28, 0.28, 1.00 };
+	//GLfloat diffuse_silver[] = { 0.28, 0.28, 0.28, 1.00 };
+	GLfloat diffuse_silver[] = { 0.71, 0.43, 0.18, 1.00 };
 	GLfloat specular_silver[] = { 0.77, 0.77, 0.77, 1.00 };
 
-	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient_silver);
+	//glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient_silver);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse_silver);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular_silver);
 	glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 51.2);
